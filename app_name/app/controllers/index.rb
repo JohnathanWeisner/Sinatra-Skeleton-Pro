@@ -1,10 +1,9 @@
-before '*' do
-  current_user
-end
-
 get '/' do
-  @posts = Post.all
-  erb :index
+  if logged_in?
+    erb :"comments/index"
+  else
+    redirect "/sessions/new"
+  end
 end
 
 
