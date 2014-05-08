@@ -1,0 +1,9 @@
+
+hello
+<ul>
+  <% @posts.each do | post | %>
+    <li><a href=<%= "\""+ post.link + "\"" %>><%= post.title %></a>  <a href=<%= "\"http://localhost:9393/item?id=#{post.id}\"" %>>comments</a></li>
+
+  <% end %>
+</ul>
+

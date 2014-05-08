@@ -1,0 +1,41 @@
+<% if @user %>
+  <% @user.errors.full_messages.each do |error| %>
+    <p> <%= error %> </p>
+  <% end %>
+<% end %>
+<% if @error %>
+    <p> <%= @error %> </p>
+<% end %>
+<form id="login" class="form-2" method="POST" action="/login">
+  <h1><span class="log-in">Log in</span> or <span class="sign-up">sign up</span></h1>
+  <p class="float">
+    <input type="hidden" name="last_visited" value=<%= "\"#{@last_visited }\"" %> >
+    <label for="login"><i class="icon-user"></i>Username</label>
+    <input type="text" name="username" placeholder="Username">
+  </p>
+  <p class="float">
+    <label for="password"><i class="icon-lock"></i>Password</label>
+    <input type="password" name="password" placeholder="Password" class="showpassword">
+  </p>
+  <p class="clearfix">
+    <input type="submit" name="submit" value="Log in">
+  </p>
+</form>​​
+
+<form id="signup" class="form-2" method="POST" action="/signup">
+  <h1><span class="log-in">Create a New Account</span></h1>
+  <p class="float">
+    <input type="hidden" name="last_visited" value=<%= "\"#{@last_visited }\"" %> >
+    <label for="login"><i class="icon-user"></i>Username</label>
+    <input type="text" name="user[username]" placeholder="Username">
+  </p>
+  <p class="float">
+    <label for="password"><i class="icon-lock"></i>Password</label>
+    <input type="password" name="user[password]" placeholder="Password" class="showpassword">
+  </p>
+  <p class="clearfix">
+    <input type="submit" name="submit" value="Create Account">
+  </p>
+</form>​​
+
+<%= @last_visited %>
